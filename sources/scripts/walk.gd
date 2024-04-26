@@ -16,6 +16,7 @@ func process(_delta):
 	pass
 
 func physics_process(_delta):
+	fsm.is_victim_detect()
 	if Input.is_action_pressed(fsm.player_root.ui_right) or Input.is_action_pressed(fsm.player_root.ui_left):
 		fsm.set_direction(fsm.player, Input.is_action_pressed(fsm.player_root.ui_right))
 		fsm.player_root.velocity.x = fsm.get_direction(Input.is_action_pressed(fsm.player_root.ui_right))*fsm.player_root.SPEED

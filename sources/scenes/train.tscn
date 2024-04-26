@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/poligon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,23 +6,25 @@
 [ext_resource path="res://assets/decor/gfloor.png" type="Texture" id=4]
 [ext_resource path="res://assets/actors/women/ggirl0007.png" type="Texture" id=5]
 [ext_resource path="res://assets/decor/gwall.png" type="Texture" id=6]
+[ext_resource path="res://scenes/Victim.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -4, 1 )
+scale = Vector2( 3, 3 )
 
 [node name="Gwall" type="Sprite" parent="."]
-position = Vector2( 195, 480 )
+position = Vector2( 173.969, 80.4834 )
 rotation = 3.14159
 scale = Vector2( 2.19583, 3.35298 )
 texture = ExtResource( 6 )
 
 [node name="Poligon" parent="." instance=ExtResource( 1 )]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 213, 591 )
+position = Vector2( 191.969, 191.483 )
 scale = Vector2( -1.06243, 0.473492 )
 
 [node name="Gfloor" type="Sprite" parent="."]
-position = Vector2( 265, 589 )
+position = Vector2( 243.969, 189.483 )
 texture = ExtResource( 4 )
 
 [node name="Gtv" type="Sprite" parent="Gfloor"]
@@ -33,9 +35,14 @@ texture = ExtResource( 3 )
 position = Vector2( 10, -20 )
 texture = ExtResource( 5 )
 
-[node name="KinematicBody2D" parent="Gfloor" instance=ExtResource( 2 )]
-position = Vector2( -94.277, -236.111 )
-
 [node name="Gfloor2" type="Sprite" parent="."]
-position = Vector2( 153, 589 )
+position = Vector2( 131.969, 189.483 )
 texture = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 149.692, -46.6276 )
+scale = Vector2( 1, 1 )
+
+[node name="Victim" parent="." instance=ExtResource( 7 )]
+position = Vector2( 81.619, 168.53 )
+scale = Vector2( 1, 1 )

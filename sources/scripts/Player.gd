@@ -12,8 +12,9 @@ var double_jump
 var ui_left = 'ui_left'
 var ui_right = 'ui_right'
 var ui_up = 'ui_up'
-var ui_close_attack = 'ui_close_attack'
-var ui_ranged_attack = 'ui_ranged_attack'
+var ui_grabbing = 'ui_grabbing'
+
+var grabbing_is_availiable=false
 
 
 

@@ -17,8 +17,7 @@ func process(_delta):
 
 func physics_process(_delta):
 	if Input.is_action_pressed(fsm.player_root.ui_right) or Input.is_action_pressed(fsm.player_root.ui_left):
-		fsm.set_direction(fsm.player, Input.is_action_pressed(fsm.player_root.ui_right))
-		fsm.player_root.velocity.x = fsm.get_direction(Input.is_action_pressed(fsm.player_root.ui_right))*fsm.player_root.SPEED
+		fsm.player_root.change_direction(Input.is_action_pressed(fsm.player_root.ui_right))
 	
 	if Input.is_action_just_pressed(fsm.player_root.ui_up):
 		exit('jump')
@@ -30,10 +29,11 @@ func physics_process(_delta):
 
 func input(_event):
 	if _event.is_action_pressed(fsm.player_root.ui_left):
-		fsm.set_direction(fsm.player, false)
+		fsm.player_root.change_direction(Input.is_action_pressed(fsm.player_root.ui_right))
 		Input.action_release(fsm.player_root.ui_right)
+	
 	if _event.is_action_pressed(fsm.player_root.ui_right):
-		fsm.set_direction(fsm.player, true)
+		fsm.player_root.change_direction(Input.is_action_pressed(fsm.player_root.ui_right))
 		Input.action_release(fsm.player_root.ui_left)
 	#if _event.is_action_pressed(fsm.player_root.ui_close_attack):
 	#	exit('close_attack')

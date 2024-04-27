@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/actors/man/gman0002.png" type="Texture" id=1]
 [ext_resource path="res://assets/actors/man/gman0003.png" type="Texture" id=2]
@@ -7,18 +7,32 @@
 [ext_resource path="res://scripts/StateMachine.gd" type="Script" id=5]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=6]
 [ext_resource path="res://assets/actors/man/gman0011.png" type="Texture" id=7]
+[ext_resource path="res://scripts/grabing.gd" type="Script" id=8]
+[ext_resource path="res://assets/actors/man/gmangrab0004.png" type="Texture" id=9]
 [ext_resource path="res://assets/actors/man/gman0001.png" type="Texture" id=10]
+[ext_resource path="res://assets/actors/man/gmangrab0003.png" type="Texture" id=11]
+[ext_resource path="res://assets/actors/man/gmangrab0002.png" type="Texture" id=12]
 [ext_resource path="res://assets/actors/man/gman0008.png" type="Texture" id=13]
 [ext_resource path="res://scripts/idle.gd" type="Script" id=14]
 [ext_resource path="res://scripts/falling.gd" type="Script" id=15]
 [ext_resource path="res://scripts/walk.gd" type="Script" id=16]
 [ext_resource path="res://scripts/jump.gd" type="Script" id=17]
+[ext_resource path="res://scripts/PlayerSprite.gd" type="Script" id=18]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.45203
+height = 23.6376
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "falling",
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -31,43 +45,60 @@ animations = [ {
 "name": "fuckCulmination",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "walk",
+"name": "falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "grabbing",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 6.45203
-height = 23.6376
-
 [node name="KinematicBody2D" type="KinematicBody2D"]
+z_index = 1
+collision_layer = 2147483649
 script = ExtResource( 6 )
-
-[node name="PlayerSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( -1, 1 )
-frames = SubResource( 1 )
-animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -3.25085 )
 shape = SubResource( 2 )
+
+[node name="ForvardRayCast" type="RayCast2D" parent="."]
+rotation = -1.5708
+enabled = true
+collision_mask = 2147483650
+
+[node name="PlayerSprite" type="AnimatedSprite" parent="."]
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+frames = SubResource( 1 )
+animation = "grabbing"
+script = ExtResource( 18 )
+
+[node name="AvailiabilityStatusesLabel" type="Label" parent="."]
+margin_left = -19.8225
+margin_top = -60.5811
+margin_right = 20.1775
+margin_bottom = -46.5811
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CurrentStateLabel" type="Label" parent="."]
 margin_left = -20.0
 margin_top = -35.0
 margin_right = 20.0
 margin_bottom = -21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="states" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -83,3 +114,6 @@ script = ExtResource( 16 )
 
 [node name="jump" type="Node" parent="states"]
 script = ExtResource( 17 )
+
+[node name="grabbing" type="Node" parent="states"]
+script = ExtResource( 8 )

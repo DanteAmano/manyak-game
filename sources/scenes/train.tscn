@@ -41,8 +41,6 @@ texture = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 149.692, -46.6276 )
-scale = Vector2( 1, 1 )
 
 [node name="Victim" parent="." instance=ExtResource( 7 )]
 position = Vector2( 81.619, 168.53 )
-scale = Vector2( 1, 1 )

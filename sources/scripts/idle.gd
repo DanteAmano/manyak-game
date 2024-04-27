@@ -14,13 +14,13 @@ func exit(next_state):
 func process(_delta):
 	if Input.is_action_pressed(fsm.player_root.ui_right) or Input.is_action_pressed(fsm.player_root.ui_left):
 		exit("walk")
+		
 	if Input.is_action_pressed(fsm.player_root.ui_grabbing) and fsm.player_root.grabbing_is_availiable:
 		exit("grabbing")
-	if not fsm.player_root.is_on_floor():
-		print('EXIT FALLING')
+		
+	if false and not fsm.player_root.is_on_floor():
 		exit('falling')
-	if Input.is_action_pressed(fsm.player_root.ui_left) or Input.is_action_pressed(fsm.player_root.ui_right):
-		exit('walk')
+
 	if Input.is_action_pressed(fsm.player_root.ui_up) :
 		exit('jump')
 

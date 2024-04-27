@@ -16,13 +16,10 @@ func process(_delta):
 
 func physics_process(_delta):
 	if Input.is_action_just_pressed(fsm.player_root.ui_up) and fsm.player_root.is_on_floor():
-		fsm.player_root.velocity.y = fsm.player_root.JUMPFORCE
-	if Input.is_action_pressed(fsm.player_root.ui_right):
-		fsm.player_root.velocity.x = fsm.get_direction(true)*fsm.player_root.SPEED
-		fsm.set_direction(fsm.player, true)
-	if Input.is_action_pressed(fsm.player_root.ui_left):
-		fsm.player_root.velocity.x = fsm.get_direction(false)*fsm.player_root.SPEED
-		fsm.set_direction(fsm.player, false)
+		fsm.player_root.set_jump_up_velocity()
+
+	if Input.is_action_pressed(fsm.player_root.ui_left) or Input.is_action_pressed(fsm.player_root.ui_right):
+		fsm.player_root.change_direction(Input.is_action_pressed(fsm.player_root.ui_right))
 	if fsm.player_root.is_on_floor():
 		exit('idle')
 

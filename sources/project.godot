@@ -32,6 +32,11 @@ ui_grabbing={
  ]
 }
 
+[layer_names]
+
+2d_render/layer_2="victim"
+2d_physics/layer_2="victim"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

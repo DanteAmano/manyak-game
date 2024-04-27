@@ -18,16 +18,12 @@ var history = []
 onready var player_root = get_node(PATH_TO_PARENT)
 onready var player = player_root.find_node(PLAYER_OBJECT)
 onready var state_label = player_root.find_node(SATATE_LABEL)
-onready var availiability_state_label = player_root.find_node('AvailiabilityStatusesLabel')
-onready var forvard_ray_cast = player_root.find_node('ForvardRayCast')
+
 #onready var right_wall_ray = player_root.find_node(RIGHT_WALL)
 #onready var left_wall_ray = player_root.find_node(LEFT_WALL)
 # user actions
 
 
-func is_victim_detect():
-	availiability_state_label.text = String(forvard_ray_cast.is_colliding())
-	return forvard_ray_cast.is_colliding()
 #refs to functions
 #onready var move_and_slide = funcref(player_root, "move_and_slide")
 
@@ -103,10 +99,7 @@ func get_direction(direction_right):
 #	return offset_list[int(direction_right)]
 	
 
-func set_direction(player, direction_right):
-	player.flip_h = not direction_right
-	#player.scale = Vector2(get_direction(direction_right),1)
-	#player.offset = Vector2(get_offset_x(direction_right),0)
+
 	
 #func wall_detector():
 #	return left_wall_ray.is_colliding() or right_wall_ray.is_colliding()

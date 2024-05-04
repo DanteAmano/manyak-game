@@ -5,7 +5,7 @@ const DRAGGING_SPEED = 10
 const GRAVITY = 15
 const JUMPFORCE = -500
 const SPEED_SLIDE = 70
-
+const  VICTIM_GROUP_NAME = "victim"
 
 var velocity = Vector2(0,0) # Скорость игрока по координатам x, y
 var double_jump 
@@ -30,8 +30,9 @@ var is_thing_pull_out = false
 
 signal is_grabbing_victim
 signal is_victim_good
-signal is_dragging_victim
-signal change_position(x, y)
+signal is_dragging_victim(node)
+signal change_position(node)
+signal is_not_victim_grabbing
 
 
 
@@ -41,6 +42,10 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x, 0, 0.3)
 	victim_detect_listener()
 	
+	
+
+func victim_is_safe():
+	emit_signal("is_not_victim_grabbing")
 
 func victim_detect_listener():
 	availiability_state_label.text = 'Victim Detect' if forvard_ray_cast.is_colliding() else ''
@@ -69,4 +74,13 @@ func change_direction(direction):
 func set_jump_up_velocity():
 	self.velocity.y = self.JUMPFORCE
 
+func current_flip_to_num():
+	return 1 if self.sprite.flip_h else -1
 
+func is_victim_grabing():
+	if drag_area.get_overlapping_bodies():
+		for body in drag_area.get_overlapping_bodies():
+			if VICTIM_GROUP_NAME in body.get_groups():
+				return true
+	return false
+				

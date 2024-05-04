@@ -67,6 +67,8 @@ extents = Vector2( 23.8553, 252.938 )
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2( 3, -4 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite" type="Sprite" parent="floor"]
 position = Vector2( -6, 9 )
@@ -88,6 +90,8 @@ position = Vector2( 7, -2 )
 shape = SubResource( 2 )
 
 [node name="wall_right" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite" type="Sprite" parent="wall_right"]
 position = Vector2( -146.206, -208.759 )
@@ -99,6 +103,8 @@ position = Vector2( -132.451, -246.942 )
 shape = SubResource( 5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 position = Vector2( 166.122, -241.632 )

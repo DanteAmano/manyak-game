@@ -1,44 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/poligon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/decor/gtv.png" type="Texture" id=3]
-[ext_resource path="res://assets/decor/gfloor.png" type="Texture" id=4]
-[ext_resource path="res://assets/decor/gwall.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Victim.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -4, 1 )
 scale = Vector2( 3, 3 )
 
-[node name="Gwall" type="Sprite" parent="."]
-position = Vector2( 173.969, 80.4834 )
-rotation = 3.14159
-scale = Vector2( 2.19583, 3.35298 )
-texture = ExtResource( 6 )
-
 [node name="Poligon" parent="." instance=ExtResource( 1 )]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 191.969, 191.483 )
-scale = Vector2( -1.06243, 0.473492 )
-
-[node name="Gfloor" type="Sprite" parent="."]
-position = Vector2( 243.969, 189.483 )
-texture = ExtResource( 4 )
-
-[node name="Gtv" type="Sprite" parent="Gfloor"]
-position = Vector2( -115, -19 )
-texture = ExtResource( 3 )
-
-[node name="Gfloor2" type="Sprite" parent="."]
-position = Vector2( 131.969, 189.483 )
-texture = ExtResource( 4 )
+position = Vector2( 212.333, 200.333 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 153.983, -24.0202 )
 
 [node name="Victim" parent="." instance=ExtResource( 7 )]
-position = Vector2( 215.548, 168.53 )
+position = Vector2( 215.333, 169.333 )
+
 [connection signal="change_position" from="Player" to="Victim" method="_on_Player_change_position"]
 [connection signal="is_dragging_victim" from="Player" to="Victim" method="_on_Player_is_dragging_victim"]
 [connection signal="is_grabbing_victim" from="Player" to="Victim" method="_on_Player_is_grabbing_victim"]

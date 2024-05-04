@@ -4,7 +4,7 @@ var fsm: StateMachine
 
 
 func enter():
-	fsm.player.play('grabbing')
+	fsm.player.play('dragging')
 
 
 func exit(next_state):
@@ -15,7 +15,6 @@ func process(_delta):
 	if Input.is_action_pressed(fsm.player_root.ui_right) or Input.is_action_pressed(fsm.player_root.ui_left):
 		exit("walk")
 	if not fsm.player_root.is_on_floor():
-		print('EXIT FALLING')
 		exit('falling')
 	if Input.is_action_pressed(fsm.player_root.ui_left) or Input.is_action_pressed(fsm.player_root.ui_right):
 		exit('walk')
@@ -24,8 +23,8 @@ func process(_delta):
 
 
 func physics_process(_delta):
-	pass
-
+	fsm.player_root.draging_move()
+	fsm.player_root.emit_signal("change_position", fsm.player_root.position.x, fsm.player_root.position.y)
 	
 func input(_event):
 	pass

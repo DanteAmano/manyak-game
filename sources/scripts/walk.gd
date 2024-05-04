@@ -5,6 +5,7 @@ var fsm: StateMachine
 
 func enter():
 	fsm.player.play('walk')
+	
 
 
 func exit(next_state):
@@ -25,6 +26,7 @@ func physics_process(_delta):
 		exit('idle')
 	if not fsm.player_root.is_on_floor():
 		exit('falling')
+
 
 
 func input(_event):

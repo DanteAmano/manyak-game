@@ -16,11 +16,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "fear",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "idle",
@@ -28,20 +23,27 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "panic",
-"speed": 3.0
+"name": "fear",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "panic",
+"speed": 3.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 6.45203
 height = 20.1393
 
-[node name="KinematicBody2D" type="KinematicBody2D" groups=["victim"]]
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"victim",
+]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 10 )

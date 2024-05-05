@@ -36,7 +36,9 @@ func process(_delta):
 	if Input.is_action_just_pressed(fsm.player_root.ui_thing_pull_out):
 		fsm.player_root.toggle_thing_pull_out()
 		play_current_sprite()
-		
+	
+	if Input.is_action_pressed(fsm.player_root.ui_fuck) :
+		exit('fuck')
 
 func physics_process(_delta):
 	pass

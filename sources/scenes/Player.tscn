@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/actors/man/fuckingman0003.png" type="Texture" id=1]
 [ext_resource path="res://assets/actors/man/fuckingman0002.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/actors/man/gman0011.png" type="Texture" id=7]
 [ext_resource path="res://scripts/grabing.gd" type="Script" id=8]
 [ext_resource path="res://assets/actors/man/dragging (6).png" type="Texture" id=9]
+[ext_resource path="res://scripts/fuck.gd" type="Script" id=10]
 [ext_resource path="res://assets/actors/man/fuckingman0004.png" type="Texture" id=11]
 [ext_resource path="res://assets/actors/man/dragging (4).png" type="Texture" id=12]
 [ext_resource path="res://assets/actors/man/stay half side.png" type="Texture" id=13]
@@ -25,30 +26,35 @@
 radius = 6.45203
 height = 23.6376
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=2]
 flags = 4
 load_path = "res://.import/walk0001.png-0e5be02427d9adc6b52154831f02e86a.stex"
 
-[sub_resource type="StreamTexture" id=9]
+[sub_resource type="StreamTexture" id=3]
 flags = 4
 load_path = "res://.import/walk0002.png-86cf02149b247251421935479354809b.stex"
 
-[sub_resource type="StreamTexture" id=10]
+[sub_resource type="StreamTexture" id=4]
 flags = 4
 load_path = "res://.import/walk0003.png-a3d4028f2e548e5560af22406577f4a5.stex"
 
-[sub_resource type="StreamTexture" id=11]
+[sub_resource type="StreamTexture" id=5]
 flags = 4
 load_path = "res://.import/walk0004.png-5e39b58d44ce391928e3b5181a72f051.stex"
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 12 ), ExtResource( 21 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "dragging",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ) ],
+"frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "falling",
 "speed": 5.0
@@ -68,28 +74,23 @@ animations = [ {
 "name": "grab",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "idle_with_thing",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ) ],
+"frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=7]
 radius = 1.052
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
@@ -109,7 +110,7 @@ collision_mask = 2147483650
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-frames = SubResource( 2 )
+frames = SubResource( 6 )
 animation = "dragging"
 script = ExtResource( 18 )
 
@@ -120,7 +121,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea"]
 position = Vector2( -17.4963, -4.28716 )
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="AvailiabilityStatusesLabel" type="Label" parent="."]
 margin_left = -19.8225
@@ -154,3 +155,6 @@ script = ExtResource( 8 )
 
 [node name="grab" type="Node" parent="states"]
 script = ExtResource( 20 )
+
+[node name="fuck" type="Node" parent="states"]
+script = ExtResource( 10 )

@@ -16,6 +16,7 @@ var ui_up = 'ui_up'
 var ui_dragging = 'ui_dragging'
 var ui_grab = 'ui_grab'
 var ui_thing_pull_out = 'thing_pull_out'
+var ui_fuck = 'ui_fuck'
 
 var grabbing_is_availiable=false
 

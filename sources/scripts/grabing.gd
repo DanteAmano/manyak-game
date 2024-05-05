@@ -15,12 +15,15 @@ func exit(next_state):
 func process(_delta):
 	if Input.is_action_pressed(fsm.player_root.ui_right) or Input.is_action_pressed(fsm.player_root.ui_left):
 		exit("walk")
-	if not fsm.player_root.is_on_floor():
-		exit('falling')
-	if Input.is_action_pressed(fsm.player_root.ui_left) or Input.is_action_pressed(fsm.player_root.ui_right):
-		exit('walk')
+
 	if Input.is_action_pressed(fsm.player_root.ui_up) :
 		exit('jump')
+		
+	if Input.is_action_pressed(fsm.player_root.ui_fuck) :
+		exit('fuck')
+	
+	if not Input.is_action_pressed(fsm.player_root.ui_dragging):
+		fsm.back()
 
 
 func physics_process(_delta):
@@ -28,18 +31,9 @@ func physics_process(_delta):
 	if fsm.player_root.is_victim_grabing():
 		fsm.player_root.emit_signal("change_position", fsm.player_root)
 	
+	
 func input(_event):
 	pass
-	## attacks listener#####
-	#if _event.is_action_pressed(fsm.player_root.ui_close_attack):
-	#	exit('close_attack')
-	#if _event.is_action_pressed(fsm.player_root.ui_ranged_attack):
-	#	exit('ranged_attack')
-	########################
-	#if _event.is_action_pressed(fsm.player_root.ui_left) or _event.is_action_pressed(fsm.player_root.ui_right):
-	#	exit('walk')
-	#elif _event.is_action_pressed(fsm.player_root.ui_up) :
-	#	exit('jump')
 	
 
 func unhandled_input(_event):

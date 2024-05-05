@@ -32,6 +32,8 @@ func process(_delta):
 
 
 func physics_process(_delta):
+	if Input.is_action_pressed(fsm.player_root.ui_fuck) :
+		exit('fuck')
 	if not Input.is_action_pressed(fsm.player_root.ui_grab):
 		exit(fsm.get_history_back_state())
 	

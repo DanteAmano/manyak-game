@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dragging (6).png-23683bba225bcc67390fd2a056c8d9e5.stex"
+path="res://.import/man dragging0009.png-272e67af73b7a0f79e3c8f1a597fada7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/actors/man/dragging (6).png"
-dest_files=[ "res://.import/dragging (6).png-23683bba225bcc67390fd2a056c8d9e5.stex" ]
+source_file="res://assets/actors/man/man dragging0009.png"
+dest_files=[ "res://.import/man dragging0009.png-272e67af73b7a0f79e3c8f1a597fada7.stex" ]
 
 [params]
 

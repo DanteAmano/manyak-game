@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dragging (5).png-90a750c550824fdb9544c36c376f8cdb.stex"
+path="res://.import/girl panic0001.png-654a7a1e15df6142427201f0c9c0e38e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/actors/man/dragging (5).png"
-dest_files=[ "res://.import/dragging (5).png-90a750c550824fdb9544c36c376f8cdb.stex" ]
+source_file="res://assets/actors/women/girl panic0001.png"
+dest_files=[ "res://.import/girl panic0001.png-654a7a1e15df6142427201f0c9c0e38e.stex" ]
 
 [params]
 

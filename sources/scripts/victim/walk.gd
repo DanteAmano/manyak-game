@@ -5,9 +5,9 @@ var fsm: VictimStateMachine
 
 
 func enter():
-	fsm.player.play('idle')
-	yield(get_tree().create_timer(1), "timeout")
-	exit('walk')
+	fsm.player.play('walk')
+	#yield(get_tree().create_timer(3), "timeout")
+	#exit('idle')
 
 
 func exit(next_state):
@@ -18,7 +18,8 @@ func process(_delta):
 	pass
 
 func physics_process(_delta):
-	pass
+	#fsm.set_direction(fsm.player, Input.is_action_pressed(fsm.player_root.ui_right))
+	fsm.player_root.velocity.x = -1*fsm.player_root.SPEED
 
 
 func input(_event):

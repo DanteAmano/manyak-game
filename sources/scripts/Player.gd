@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-const SPEED = 80
+const SPEED = 30
 const DRAGGING_SPEED = 10
-const GRAVITY = 15
-const JUMPFORCE = -500
-const SPEED_SLIDE = 70
+const GRAVITY = 12
+const JUMPFORCE = -300
+const SPEED_SLIDE = 30
 const  VICTIM_GROUP_NAME = "victim"
 
 var velocity = Vector2(0,0) # Скорость игрока по координатам x, y
@@ -49,7 +49,7 @@ func victim_is_safe():
 	emit_signal("is_not_victim_grabbing")
 
 func victim_detect_listener():
-	availiability_state_label.text = 'Victim Detect' if forvard_ray_cast.is_colliding() else ''
+	#availiability_state_label.text = 'Victim Detect' if forvard_ray_cast.is_colliding() else ''
 	grabbing_is_availiable = forvard_ray_cast.is_colliding()
 	
 	return forvard_ray_cast.is_colliding()

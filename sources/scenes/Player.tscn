@@ -30,8 +30,13 @@
 radius = 6.45203
 height = 23.6376
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "dragging",
@@ -57,11 +62,6 @@ animations = [ {
 "name": "grab",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "idle_with_thing",
@@ -78,7 +78,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=3]
 radius = 1.052
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
@@ -98,8 +98,9 @@ collision_mask = 2147483650
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-frames = SubResource( 6 )
+frames = SubResource( 2 )
 animation = "dragging"
+frame = 1
 playing = true
 script = ExtResource( 18 )
 
@@ -110,7 +111,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea"]
 position = Vector2( -17.4963, -4.28716 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="AvailiabilityStatusesLabel" type="Label" parent="."]
 margin_left = -19.8225
@@ -147,3 +148,16 @@ script = ExtResource( 20 )
 
 [node name="fuck" type="Node" parent="states"]
 script = ExtResource( 10 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 50, -80 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+process_mode = 0
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 7.0
+drag_margin_left = 0.07
+drag_margin_right = 0.04

@@ -2,7 +2,7 @@ extends Node
 
 class_name StateMachine
 
-const DEBUG = true
+const DEBUG = false
 const PATH_TO_PARENT = '../'
 const PLAYER_OBJECT = 'PlayerSprite' 
 const SATATE_LABEL = 'CurrentStateLabel' 

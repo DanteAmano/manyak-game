@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/decor/backgroundgirl0004.png" type="Texture" id=7]
 [ext_resource path="res://assets/decor/sky0001.png" type="Texture" id=9]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
@@ -18,39 +18,40 @@ animations = [ {
 
 [sub_resource type="ShaderMaterial" id=10]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 132.942, 10 )
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=12]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 10, 255.898 )
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=15]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=7]
-gradient = SubResource( 6 )
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 23.8553, 252.938 )
 
 [node name="Poligon" type="Node2D"]
 
 [node name="Sky0002" type="Sprite" parent="."]
-position = Vector2( 15, -108 )
+position = Vector2( -38.0346, -143.589 )
+scale = Vector2( 1.23269, 1.23269 )
 texture = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 56, -31 )
-frames = SubResource( 9 )
-frame = 1
+frames = SubResource( 1 )
+frame = 6
 playing = true
 
 [node name="floor" type="StaticBody2D" parent="."]
@@ -62,7 +63,7 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 position = Vector2( 7, -2 )
-shape = SubResource( 2 )
+shape = SubResource( 11 )
 
 [node name="wall_right" type="StaticBody2D" parent="."]
 position = Vector2( -366, 31 )
@@ -72,11 +73,11 @@ collision_mask = 3
 [node name="Sprite" type="Sprite" parent="wall_right"]
 position = Vector2( -146.206, -208.759 )
 scale = Vector2( 0.0233076, 443.944 )
-texture = SubResource( 4 )
+texture = SubResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_right"]
 position = Vector2( -132.451, -246.942 )
-shape = SubResource( 5 )
+shape = SubResource( 14 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 403, 10 )
@@ -86,11 +87,11 @@ collision_mask = 3
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 position = Vector2( 166.122, -241.632 )
 scale = Vector2( 0.0358471, 522.019 )
-texture = SubResource( 7 )
+texture = SubResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 152.908, -247.295 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="Gtv" type="Sprite" parent="."]
 position = Vector2( 151, -44 )

@@ -4,12 +4,12 @@ extends KinematicBody2D
 var fsm: VictimStateMachine
 
 
-const SPEED = 80
-const DRAGGING_SPEED = 10
+const SPEED = 20
 const GRAVITY = 15
 const JUMPFORCE = -500
-const SPEED_SLIDE = 70
+const SPEED_SLIDE = 30
 const DRAG_OFFSET = 12
+const DRAGGING_SPEED = 10
 
 var velocity = Vector2(0,0) # Скорость игрока по координатам x, y
 

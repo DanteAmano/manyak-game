@@ -57,11 +57,13 @@ texture = ExtResource( 9 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( -146, 0 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D2"]
 position = Vector2( 56, -31 )
 frames = SubResource( 1 )
-frame = 6
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
@@ -109,6 +111,7 @@ shape = SubResource( 9 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2( -194, 14 )
+collision_layer = 3
 
 [node name="Gtv" type="Sprite" parent="StaticBody2D3"]
 position = Vector2( 151, -44 )

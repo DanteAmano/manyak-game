@@ -2,7 +2,7 @@ extends Node
 
 class_name VictimStateMachine
 
-const DEBUG = true
+#const DEBUG = false
 const PATH_TO_PARENT = '../'
 const PLAYER_OBJECT = 'PlayerSprite' 
 const SATATE_LABEL = 'CurrentStateLabel' 
@@ -41,7 +41,7 @@ func get_history_back_state():
 		return history.pop_back()
 
 func _enter_state():
-	if DEBUG:
+	if player_root.DEBUG:
 		state_label.text = state.name
 		print("VICTIM. Entering state: ", state.name)
 	# Give the new state a reference to it's state machine i.e. this one
@@ -79,4 +79,11 @@ func _notification(what):
 	if state and state.has_method("notification"):
 			state.notification(what)
 
+
+func exit_with_checking(fsm_inst, state_name):
+	"""
+	Т.к. при завершении таймеров, состояния может быть уже изменено, то необходимо это проверить при измении состояния.
+	"""
+	if self.state.name != state_name:
+		fsm_inst.exit(state_name)
 

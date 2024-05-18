@@ -39,7 +39,7 @@ func physics_process(_delta):
 	
 
 func input(_event):
-	if _event.is_action_pressed(fsm.player_root.ui_dragging):
+	if _event.is_action_pressed(fsm.player_root.ui_dragging) and fsm.player_root.is_victim_grabing():
 		exit('dragging')
 	
 	## attacks listener#####

@@ -4,11 +4,9 @@ var fsm: StateMachine
 
 
 func enter():
-	print("Jump")
-	#yield(get_tree().create_timer(2.0), "timeout")
 	fsm.player.play('jump')
 	fsm.player_root.set_jump_up_velocity()
-	fsm.player_root.double_jump = true
+	#fsm.player_root.double_jump = true
 
 
 func exit(next_state):

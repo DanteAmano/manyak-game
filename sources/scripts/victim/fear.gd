@@ -5,12 +5,13 @@ var fsm: VictimStateMachine
 
 
 func enter():
-	fsm.player.play('fear') 
+	fsm.player.play('fear')
+	fsm.player_root.is_in_fearing = true
 
 
 func exit(next_state):
 	fsm.change_to(next_state)
-
+	
 
 func process(_delta):
 	pass

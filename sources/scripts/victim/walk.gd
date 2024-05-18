@@ -2,13 +2,21 @@ extends Node
 
 var fsm: VictimStateMachine
 
+var direction: int
+var timer: SceneTreeTimer
 
 
 func enter():
+	direction = fsm.player_root.change_direction()
 	fsm.player.play('walk')
-	#yield(get_tree().create_timer(3), "timeout")
-	#exit('idle')
+	timer = get_tree().create_timer(fsm.player_root.duration_walking)
+	timer.connect("timeout", self, "_on_timer_timeout")
 
+
+func _on_timer_timeout():
+	if not fsm.player_root.is_in_fearing:
+		fsm.exit_with_checking(self, 'idle')
+		
 
 func exit(next_state):
 	fsm.change_to(next_state)
@@ -18,8 +26,7 @@ func process(_delta):
 	pass
 
 func physics_process(_delta):
-	#fsm.set_direction(fsm.player, Input.is_action_pressed(fsm.player_root.ui_right))
-	fsm.player_root.velocity.x = -1*fsm.player_root.SPEED
+	fsm.player_root.velocity.x = direction * fsm.player_root.SPEED
 
 
 func input(_event):

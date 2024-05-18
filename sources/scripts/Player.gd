@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+export var DEBUG: bool = false
+export var double_jump: bool = false 
+
 const SPEED = 30
 const DRAGGING_SPEED = 10
 const GRAVITY = 12
@@ -8,7 +11,7 @@ const SPEED_SLIDE = 30
 const  VICTIM_GROUP_NAME = "victim"
 
 var velocity = Vector2(0,0) # Скорость игрока по координатам x, y
-var double_jump 
+
 
 var ui_left = 'ui_left'
 var ui_right = 'ui_right'

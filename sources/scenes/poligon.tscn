@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/decor/gtv.png" type="Texture" id=2]
 [ext_resource path="res://assets/decor/backgroundgirl0001.png" type="Texture" id=3]
@@ -15,6 +15,10 @@ animations = [ {
 "name": "default",
 "speed": 1.0
 } ]
+
+[sub_resource type="CapsuleShape2D" id=17]
+radius = 5.0
+height = 24.0
 
 [sub_resource type="ShaderMaterial" id=10]
 
@@ -41,6 +45,9 @@ gradient = SubResource( 15 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 23.8553, 252.938 )
 
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 14, 14.25 )
+
 [node name="Poligon" type="Node2D"]
 
 [node name="Sky0002" type="Sprite" parent="."]
@@ -48,11 +55,18 @@ position = Vector2( -38.0346, -143.589 )
 scale = Vector2( 1.23269, 1.23269 )
 texture = ExtResource( 9 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( -146, 0 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D2"]
 position = Vector2( 56, -31 )
 frames = SubResource( 1 )
-frame = 1
+frame = 6
 playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 55, -33 )
+shape = SubResource( 17 )
 
 [node name="floor" type="StaticBody2D" parent="."]
 material = SubResource( 10 )
@@ -93,6 +107,13 @@ texture = SubResource( 16 )
 position = Vector2( 152.908, -247.295 )
 shape = SubResource( 9 )
 
-[node name="Gtv" type="Sprite" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( -194, 14 )
+
+[node name="Gtv" type="Sprite" parent="StaticBody2D3"]
 position = Vector2( 151, -44 )
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 151, -43.75 )
+shape = SubResource( 18 )

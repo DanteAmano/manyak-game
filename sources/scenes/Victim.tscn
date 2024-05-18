@@ -59,11 +59,12 @@ height = 21.0959
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 10 )
+DEBUG = true
 
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 5
+frame = 6
 playing = true
 flip_h = true
 

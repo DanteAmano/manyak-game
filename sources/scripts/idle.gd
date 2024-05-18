@@ -21,8 +21,8 @@ func process(_delta):
 	if Input.is_action_pressed(fsm.player_root.ui_right) or Input.is_action_pressed(fsm.player_root.ui_left):
 		exit("walk")
 		
-	if Input.is_action_pressed(fsm.player_root.ui_dragging) and fsm.player_root.grabbing_is_availiable:
-		exit("dragging")
+	#if Input.is_action_pressed(fsm.player_root.ui_dragging) and fsm.player_root.grabbing_is_availiable:
+	#	exit("dragging")
 		
 	if false and not fsm.player_root.is_on_floor():
 		exit('falling')

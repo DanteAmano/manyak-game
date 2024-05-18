@@ -100,7 +100,6 @@ rotation = 3.14159
 scale = Vector2( 1, -1 )
 frames = SubResource( 2 )
 animation = "dragging"
-frame = 1
 playing = true
 script = ExtResource( 18 )
 

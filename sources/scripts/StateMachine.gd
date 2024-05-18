@@ -2,7 +2,7 @@ extends Node
 
 class_name StateMachine
 
-const DEBUG = true
+#const DEBUG = false
 const PATH_TO_PARENT = '../'
 const PLAYER_OBJECT = 'PlayerSprite' 
 const SATATE_LABEL = 'CurrentStateLabel' 
@@ -19,14 +19,6 @@ var history = []
 onready var player_root = get_node(PATH_TO_PARENT)
 onready var player = player_root.find_node(PLAYER_OBJECT)
 onready var state_label = player_root.find_node(SATATE_LABEL)
-
-#onready var right_wall_ray = player_root.find_node(RIGHT_WALL)
-#onready var left_wall_ray = player_root.find_node(LEFT_WALL)
-# user actions
-
-
-#refs to functions
-#onready var move_and_slide = funcref(player_root, "move_and_slide")
 
 
 func _ready():
@@ -52,7 +44,7 @@ func get_history_back_state():
 		return history.pop_back()
 
 func _enter_state():
-	if DEBUG:
+	if player_root.DEBUG:
 		state_label.text = state.name
 		print("Entering state: ", state.name)
 	# Give the new state a reference to it's state machine i.e. this one

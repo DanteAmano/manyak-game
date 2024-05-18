@@ -5,7 +5,8 @@ var fsm: VictimStateMachine
 
 
 func enter():
-	fsm.player.play('panic') 
+	fsm.player.play('panic')
+	fsm.player_root.is_in_fearing = true
 
 
 func exit(next_state):

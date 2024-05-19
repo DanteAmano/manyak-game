@@ -19,8 +19,8 @@ func process(_delta):
 	if Input.is_action_pressed(fsm.player_root.ui_up) :
 		exit('jump')
 		
-	if Input.is_action_pressed(fsm.player_root.ui_fuck) :
-		exit('fuck')
+	#if Input.is_action_pressed(fsm.player_root.ui_fuck) :
+	#	exit('fuck')
 	
 	if not Input.is_action_pressed(fsm.player_root.ui_dragging):
 		fsm.back()

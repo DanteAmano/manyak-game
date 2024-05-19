@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/actors/girl2/girl2 walk0005.png" type="Texture" id=1]
 [ext_resource path="res://assets/actors/girl2/girl2 walk0004.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://assets/actors/girl2/girl2 idol0002.png" type="Texture" id=20]
 [ext_resource path="res://assets/actors/girl2/girl2 panic0002.png" type="Texture" id=21]
 [ext_resource path="res://assets/actors/girl2/girl2 fear0001.png" type="Texture" id=22]
+[ext_resource path="res://scripts/victim/fuck.gd" type="Script" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -66,7 +67,7 @@ DEBUG = true
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 7
 playing = true
 flip_h = true
 
@@ -94,3 +95,6 @@ script = ExtResource( 13 )
 
 [node name="walk" type="Node" parent="states"]
 script = ExtResource( 17 )
+
+[node name="fuck" type="Node" parent="states"]
+script = ExtResource( 23 )

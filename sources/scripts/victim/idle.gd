@@ -2,11 +2,13 @@ extends Node
 
 var fsm: VictimStateMachine
 
+var timer = SceneTreeTimer
 
 func enter():
 	fsm.player.play('idle')
-	yield(get_tree().create_timer(fsm.player_root.get_duration_idle()), "timeout")
-	if not fsm.player_root.is_in_fearing:
+	timer = get_tree().create_timer(fsm.player_root.get_duration_idle())
+	yield(timer, "timeout")
+	if fsm.player_root.get_status_is_good():
 		fsm.exit_with_checking(self, 'walk')
 
 

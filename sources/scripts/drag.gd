@@ -9,22 +9,17 @@ var fsm: StateMachine
 
 func enter():
 	fsm.player.play('grab')
-	emit_signal_in_captured_victim("is_grabbing_victim")
+	fsm.player_root.toggle_victim_detector(true)
 
 
-func emit_signal_in_captured_victim(signal_name):
-	if fsm.player_root.drag_area.get_overlapping_bodies():
-		for body in fsm.player_root.drag_area.get_overlapping_bodies():
-			if fsm.player_root.VICTIM_GROUP_NAME in body.get_groups():
-				fsm.player_root.emit_signal(signal_name)
-				
-				
 func exit(next_state):
-	if next_state == DRAGGING_STATE_NAME and fsm.player_root.is_victim_grabing():
-		fsm.player_root.emit_signal("is_dragging_victim", fsm.player_root)
+	if next_state == DRAGGING_STATE_NAME and fsm.player_root.grabed_victim_body:
+		fsm.player_root.start_draging_victim()
 	if next_state != DRAGGING_STATE_NAME:
-		emit_signal_in_captured_victim("is_victim_good")
+		fsm.player_root.toggle_victim_detector(false)
 	fsm.change_to(next_state)
+	
+	
 
 
 func process(_delta):
@@ -32,33 +27,13 @@ func process(_delta):
 
 
 func physics_process(_delta):
-	if Input.is_action_pressed(fsm.player_root.ui_fuck) :
-		exit('fuck')
+	#if Input.is_action_pressed(fsm.player_root.ui_fuck) :
+	#	exit('fuck')
 	if not Input.is_action_pressed(fsm.player_root.ui_grab):
 		exit(fsm.get_history_back_state())
 	
 
 func input(_event):
-	if _event.is_action_pressed(fsm.player_root.ui_dragging) and fsm.player_root.is_victim_grabing():
+	if _event.is_action_pressed(fsm.player_root.ui_dragging) and fsm.player_root.grabed_victim_body:
 		exit('dragging')
 	
-	## attacks listener#####
-	#if _event.is_action_pressed(fsm.player_root.ui_close_attack):
-	#	exit('close_attack')
-	#if _event.is_action_pressed(fsm.player_root.ui_ranged_attack):
-	#	exit('ranged_attack')
-	########################
-	#if _event.is_action_pressed(fsm.player_root.ui_left) or _event.is_action_pressed(fsm.player_root.ui_right):
-	#	exit('walk')
-	#elif _event.is_action_pressed(fsm.player_root.ui_up) :
-	#	exit('jump')
-	
-
-func unhandled_input(_event):
-	pass
-
-func unhandled_key_input(_event):
-	pass
-
-func notification(_what, _flag = false):
-	pass

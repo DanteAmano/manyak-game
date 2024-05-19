@@ -32,12 +32,7 @@ onready var drag_area_collision_shape = get_node("DragArea/CollisionShape2D")
 var is_thing_pull_out = false
 
 
-signal is_grabbing_victim
-signal is_victim_good
-signal is_dragging_victim(node)
-signal change_position(node)
-signal is_not_victim_grabbing
-
+var grabed_victim_body: VictimActorBase
 
 
 func _physics_process(delta):
@@ -46,15 +41,9 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x, 0, 0.3)
 	victim_detect_listener()
 	
-	
-
-func victim_is_safe():
-	emit_signal("is_not_victim_grabbing")
 
 func victim_detect_listener():
-	#availiability_state_label.text = 'Victim Detect' if forvard_ray_cast.is_colliding() else ''
 	grabbing_is_availiable = forvard_ray_cast.is_colliding()
-	
 	return forvard_ray_cast.is_colliding()
 
 func toggle_thing_pull_out():
@@ -81,10 +70,25 @@ func set_jump_up_velocity():
 func current_flip_to_num():
 	return 1 if self.sprite.flip_h else -1
 
-func is_victim_grabing():
-	if drag_area.get_overlapping_bodies():
-		for body in drag_area.get_overlapping_bodies():
-			if VICTIM_GROUP_NAME in body.get_groups():
-				return true
-	return false
-				
+
+func toggle_victim_detector(value):
+	drag_area.get_node('CollisionShape2D').disabled = not value
+
+
+func _on_DragArea_body_entered(body):
+	if body is VictimActorBase:
+		body.command.is_grabbing_victim()
+		self.grabed_victim_body = body
+
+func _on_DragArea_body_exited(body):
+	if body is VictimActorBase:
+		body.command.is_victim_good()
+		self.grabed_victim_body = null
+
+func start_draging_victim():
+	if grabed_victim_body:
+		grabed_victim_body.command.is_dragging_victim(self)
+
+func moving_victim():
+	if grabed_victim_body:
+		grabed_victim_body.command.change_position(self)

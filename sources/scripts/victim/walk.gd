@@ -14,7 +14,7 @@ func enter():
 
 
 func _on_timer_timeout():
-	if not fsm.player_root.is_in_fearing:
+	if fsm.player_root.get_status_is_good():
 		fsm.exit_with_checking(self, 'idle')
 		
 

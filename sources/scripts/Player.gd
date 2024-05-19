@@ -28,6 +28,8 @@ onready var availiability_state_label = get_node('AvailiabilityStatusesLabel')
 onready var forvard_ray_cast = get_node("ForvardRayCast")
 onready var drag_area = get_node("DragArea")
 onready var drag_area_collision_shape = get_node("DragArea/CollisionShape2D")
+onready var fuck_area = get_node("FuckArea")
+onready var fuck_area_collision_shape = get_node("FuckArea/CollisionShape2D")
 
 var is_thing_pull_out = false
 
@@ -72,23 +74,35 @@ func current_flip_to_num():
 
 
 func toggle_victim_detector(value):
-	drag_area.get_node('CollisionShape2D').disabled = not value
+	drag_area_collision_shape.disabled = not value
 
+func toggle_fuck_detector(value):
+	fuck_area_collision_shape.disabled = not value
 
 func _on_DragArea_body_entered(body):
 	if body is VictimActorBase:
-		body.command.is_grabbing_victim()
+		body.command.set_is_grabbing_victim()
 		self.grabed_victim_body = body
 
 func _on_DragArea_body_exited(body):
 	if body is VictimActorBase:
-		body.command.is_victim_good()
+		body.command.set_is_victim_good()
 		self.grabed_victim_body = null
 
 func start_draging_victim():
 	if grabed_victim_body:
-		grabed_victim_body.command.is_dragging_victim(self)
+		grabed_victim_body.command.set_is_dragging_victim(self)
 
 func moving_victim():
 	if grabed_victim_body:
 		grabed_victim_body.command.change_position(self)
+
+
+func _on_FuckArea_body_entered(body):
+	if body is VictimActorBase:
+		body.command.set_fucking_victim()
+
+
+func _on_FuckArea_body_exited(body):
+	if body is VictimActorBase:
+		body.command.set_is_victim_good()

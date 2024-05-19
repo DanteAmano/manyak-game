@@ -4,18 +4,19 @@ class_name VictimCommand
 
 var actor: Object
 
-func is_victim_good():
+func set_is_victim_good():
 	actor.is_in_fearing = false
-	actor.fsm.change_to('idle')
+	actor.is_in_fucking = false
+	actor.fsm.state.exit('idle')
 
-func is_grabbing_victim():
-	actor.fsm.change_to('panic')
+func set_is_grabbing_victim():
+	actor.fsm.state.exit('panic')
 
 
-func is_dragging_victim(player):
+func set_is_dragging_victim(player):
 	actor.position.x = calculate_position_by_player(player)
 	actor.sprite.flip_h = not player.sprite.flip_h
-	actor.fsm.change_to('fear')
+	actor.fsm.state.exit('fear')
 
 func change_position(player):
 	actor.position.x = calculate_position_by_player(player)
@@ -24,5 +25,9 @@ func change_position(player):
 func calculate_position_by_player(player):
 	return player.position.x-actor.DRAG_OFFSET * player.current_flip_to_num()
 
-func is_not_victim_grabbing():
-	actor.fsm.change_to('idle')
+func set_is_not_victim_grabbing():
+	actor.fsm.state.exit('idle')
+	
+func set_fucking_victim():
+	actor.is_in_fucking=true
+	actor.fsm.state.exit('fuck')

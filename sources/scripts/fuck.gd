@@ -4,11 +4,13 @@ var fsm: StateMachine
 
 
 func enter():
+	fsm.player_root.toggle_fuck_detector(true)
 	fsm.player.play('fuck')
 	
 
 
 func exit(next_state):
+	fsm.player_root.toggle_fuck_detector(false)
 	fsm.change_to(next_state)
 
 

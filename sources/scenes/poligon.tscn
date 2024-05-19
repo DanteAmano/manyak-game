@@ -63,7 +63,7 @@ collision_mask = 2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D2"]
 position = Vector2( 56, -31 )
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
@@ -110,7 +110,7 @@ position = Vector2( 152.908, -247.295 )
 shape = SubResource( 9 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2( -194, 14 )
+position = Vector2( 39, 14 )
 collision_layer = 3
 
 [node name="Gtv" type="Sprite" parent="StaticBody2D3"]

@@ -13,6 +13,7 @@ const JUMPFORCE = -500
 const SPEED_SLIDE = 30
 
 onready var sprite = get_node("PlayerSprite")
+onready var tears_particles = get_node("TearsParticles")
 
 var fsm: VictimStateMachine
 var command: VictimCommand = VictimCommand.new()
@@ -46,7 +47,12 @@ func _physics_process(delta):
 	velocity.y +=  GRAVITY
 	velocity.x = lerp(velocity.x, 0, 0.3)
 
+func _get_direction_num():
+	return 1 if self.sprite.flip_h else -1
 
 func change_direction():
 	self.sprite.flip_h = not self.sprite.flip_h
-	return 1 if self.sprite.flip_h else -1
+	return _get_direction_num()
+
+
+	

@@ -67,6 +67,8 @@ colors = PoolColorArray( 0.443137, 0.752941, 0.92549, 1, 0.337255, 0.482353, 0.5
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 10 )
+duration_walking = 6
+duration_idle = 2
 DEBUG = true
 
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]

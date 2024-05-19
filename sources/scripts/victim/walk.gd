@@ -9,7 +9,7 @@ var timer: SceneTreeTimer
 func enter():
 	direction = fsm.player_root.change_direction()
 	fsm.player.play('walk')
-	timer = get_tree().create_timer(fsm.player_root.duration_walking)
+	timer = get_tree().create_timer(fsm.player_root.get_duration_walking())
 	timer.connect("timeout", self, "_on_timer_timeout")
 
 

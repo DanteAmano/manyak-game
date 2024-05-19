@@ -20,7 +20,8 @@ func process(_delta):
 func physics_process(_delta):
 	if (Input.is_action_pressed(fsm.player_root.ui_left) or Input.is_action_pressed(fsm.player_root.ui_right)):
 		exit('walk')
-
+	if not Input.is_action_pressed(fsm.player_root.ui_fuck):
+		exit(fsm.get_history_back_state())
 
 func input(_event):
 	pass

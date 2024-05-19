@@ -32,6 +32,11 @@ height = 23.0959
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "dragging",
@@ -57,11 +62,6 @@ animations = [ {
 "name": "grab",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "idle_with_thing",
@@ -85,6 +85,7 @@ radius = 1.052
 z_index = 1
 collision_layer = 2147483649
 script = ExtResource( 6 )
+DEBUG = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -3 )
@@ -111,6 +112,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea"]
 position = Vector2( -17.4963, -4.28716 )
 shape = SubResource( 3 )
+disabled = true
 
 [node name="AvailiabilityStatusesLabel" type="Label" parent="."]
 margin_left = -19.8225
@@ -159,3 +161,5 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 smoothing_speed = 7.0
+[connection signal="body_entered" from="DragArea" to="." method="_on_DragArea_body_entered"]
+[connection signal="body_exited" from="DragArea" to="." method="_on_DragArea_body_exited"]

@@ -8,7 +8,7 @@ func enter():
 
 
 func exit(next_state):
-	fsm.player_root.victim_is_safe()
+	fsm.player_root.toggle_victim_detector(false)
 	fsm.change_to(next_state)
 
 
@@ -28,8 +28,9 @@ func process(_delta):
 
 func physics_process(_delta):
 	fsm.player_root.draging_move()
-	if fsm.player_root.is_victim_grabing():
-		fsm.player_root.emit_signal("change_position", fsm.player_root)
+	
+	# Moving victim
+	fsm.player_root.moving_victim()
 	
 	
 func input(_event):

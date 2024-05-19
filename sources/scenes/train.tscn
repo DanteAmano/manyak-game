@@ -15,9 +15,3 @@ position = Vector2( 166, 115 )
 
 [node name="Victim" parent="." instance=ExtResource( 7 )]
 position = Vector2( 215.333, 169.333 )
-
-[connection signal="change_position" from="Player" to="Victim" method="_on_Player_change_position"]
-[connection signal="is_dragging_victim" from="Player" to="Victim" method="_on_Player_is_dragging_victim"]
-[connection signal="is_grabbing_victim" from="Player" to="Victim" method="_on_Player_is_grabbing_victim"]
-[connection signal="is_not_victim_grabbing" from="Player" to="Victim" method="_on_Player_is_not_victim_grabbing"]
-[connection signal="is_victim_good" from="Player" to="Victim" method="_on_Player_is_victim_good"]

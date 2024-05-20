@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/girl2 idol0001.png-8579c150bc7754e2d0ed3976df6067de.stex"
+path="res://.import/girl3 walk0003.png-52169a991a1e3103b14dcaad19e0e18b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/actors/girl2/girl2 idol0001.png"
-dest_files=[ "res://.import/girl2 idol0001.png-8579c150bc7754e2d0ed3976df6067de.stex" ]
+source_file="res://assets/actors/girl3/girl3 walk0003.png"
+dest_files=[ "res://.import/girl3 walk0003.png-52169a991a1e3103b14dcaad19e0e18b.stex" ]
 
 [params]
 

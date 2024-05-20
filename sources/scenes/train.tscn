@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/poligon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Victim2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Victim3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Victim.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
@@ -15,3 +17,9 @@ position = Vector2( 166, 115 )
 
 [node name="Victim" parent="." instance=ExtResource( 7 )]
 position = Vector2( 215.333, 169.333 )
+
+[node name="Victim2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 173, 37 )
+
+[node name="Victim3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 139, 47 )

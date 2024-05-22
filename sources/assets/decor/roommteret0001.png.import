@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/backgroundgirl0003.png-d229aeeb54b20e1cd942d13f0ffcf502.stex"
+path="res://.import/roommteret0001.png-ccb8b98ae5a5316946a95f6337ac6c71.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/decor/backgroundgirl0003.png"
-dest_files=[ "res://.import/backgroundgirl0003.png-d229aeeb54b20e1cd942d13f0ffcf502.stex" ]
+source_file="res://assets/decor/roommteret0001.png"
+dest_files=[ "res://.import/roommteret0001.png-ccb8b98ae5a5316946a95f6337ac6c71.stex" ]
 
 [params]
 

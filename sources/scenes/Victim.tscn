@@ -72,6 +72,7 @@ DEBUG = true
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 5
 playing = true
 flip_h = true
 
@@ -120,3 +121,4 @@ scale_amount = 0.7
 scale_amount_random = 0.13
 color_ramp = SubResource( 3 )
 script = ExtResource( 24 )
+tears_particle_enabled = false
